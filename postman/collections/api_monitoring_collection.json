@@ -1,0 +1,41 @@
+{
+  "info": {
+    "name": "API Uptime Monitoring",
+    "_postman_id": "api-monitoring-demo-12345",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Check Users API",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/users",
+          "protocol": "https",
+          "host": ["jsonplaceholder", "typicode", "com"],
+          "path": ["users"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "pm.test('Response time is less than 1000ms', function () {",
+              "  pm.expect(pm.response.responseTime).to.be.below(1000);",
+              "});",
+              "pm.test('Body contains at least one user', function () {",
+              "  var jsonData = pm.response.json();",
+              "  pm.expect(jsonData.length).to.be.above(0);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}

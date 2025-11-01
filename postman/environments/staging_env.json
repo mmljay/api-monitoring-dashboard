@@ -1,0 +1,16 @@
+{
+  "id": "env-staging",
+  "name": "Staging Environment",
+  "values": [
+    {
+      "key": "base_url",
+      "value": "https://jsonplaceholder.typicode.com",
+      "enabled": true
+    },
+    {
+      "key": "auth_token",
+      "value": "dummy_token_123456",
+      "enabled": true
+    }
+  ]
+}
